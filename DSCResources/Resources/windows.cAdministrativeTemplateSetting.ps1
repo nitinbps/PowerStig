@@ -5,8 +5,10 @@ $rules = $stig.RuleList | Select-Rule -Type RegistryRule
 
 foreach ($rule in $rules)
 {
-    if ($rule.Key -match "^HKEY_CURRENT_USER")
+    if ($rule.FixText -match "Administrative Template" -or $rule.Key -match "^HKEY_CURRENT_USER")
     {
+        $policyType = $rule.Key.Split('\')[0].Split('_')[-1]
+
         if ($rule.ValueType -eq 'MultiString')
         {
             $valueData = $rule.ValueData.Split("{;}")
@@ -16,14 +18,14 @@ foreach ($rule in $rules)
             $valueData = $rule.ValueData
         }
 
-        if( $valueData -eq 'ShouldBeAbsent')
+        if ($valueData -eq 'ShouldBeAbsent')
         {
             $rule.Ensure = 'Absent'
         }
 
         cAdministrativeTemplateSetting (Get-ResourceTitle -Rule $rule)
         {
-            PolicyType   = 'User'
+            PolicyType   = $policyType
             KeyValueName = $rule.Key + '\' + $rule.ValueName
             Data         = $valueData
             Type         = $rule.ValueType

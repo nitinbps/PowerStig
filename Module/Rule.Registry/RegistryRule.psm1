@@ -30,6 +30,7 @@ Class RegistryRule : Rule
     [string[]] $ValueData <#(ExceptionValue)#>
     [string] $ValueType
     [ensure] $Ensure
+    [string] $FixText
 
     <#
         .SYNOPSIS
@@ -55,11 +56,12 @@ Class RegistryRule : Rule
     #>
     RegistryRule ([xml.xmlelement] $Rule) : Base ($Rule)
     {
-        $this.Key       = $Rule.Key
+        $this.Key = $Rule.Key
         $this.ValueName = $Rule.ValueName
         $this.ValueData = $Rule.ValueData
         $this.ValueType = $Rule.ValueType
-        $this.Ensure    = $Rule.Ensure
+        $this.Ensure = $Rule.Ensure
+        $this.FixText = $Rule.FixText
     }
 
     <#

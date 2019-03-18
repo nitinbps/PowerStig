@@ -53,6 +53,7 @@ Class Rule : ICloneable
     [Boolean] $OrganizationValueRequired
     [string] $OrganizationValueTestString
     [string] $RawString
+    [string] $FixText
     hidden [string[]] $SplitCheckContent
 
     <#
@@ -107,6 +108,7 @@ Class Rule : ICloneable
             $this.RawString = $Rule.rule.Check.('check-content')
         }
 
+        $this.FixText = $Rule.rule.fixtext.('#text')
         $this.SplitCheckContent = [Rule]::SplitCheckContent( $this.rawString )
 
         $this.IsNullOrEmpty = $false
