@@ -7,7 +7,8 @@ foreach ($rule in $rules)
 {
     if ($rule.FixText -match "Administrative Template" -or $rule.Key -match "^HKEY_CURRENT_USER")
     {
-        $policyType = $rule.Key.Split('\')[0].Split('_')[-1]
+        $splitKeyPath = $rule.Key -split '\\', 2
+        $policyType = $splitKeyPath[0].Split('_')[-1]
 
         if ($rule.ValueType -eq 'MultiString')
         {
@@ -26,7 +27,7 @@ foreach ($rule in $rules)
         cAdministrativeTemplateSetting (Get-ResourceTitle -Rule $rule)
         {
             PolicyType   = $policyType
-            KeyValueName = $rule.Key + '\' + $rule.ValueName
+            KeyValueName = $splitKeyPath[1] + '\' + $rule.ValueName
             Data         = $valueData
             Type         = $rule.ValueType
             Ensure       = $rule.Ensure

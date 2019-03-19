@@ -1,4 +1,4 @@
-<DISASTIG version="2" classification="UNCLASSIFIED" customname="" stigid="Windows_2012_MS_STIG" description="The Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_Windows_2012_and_2012_R2_MS_STIG_V2R14_Manual-xccdf.xml" releaseinfo="Release: 14 Benchmark Date: 26 Oct 2018" title="Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="2.14" created="3/18/2019">
+<DISASTIG version="2" classification="UNCLASSIFIED" customname="" stigid="Windows_2012_MS_STIG" description="The Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil." filename="U_Windows_2012_and_2012_R2_MS_STIG_V2R14_Manual-xccdf.xml" releaseinfo="Release: 14 Benchmark Date: 26 Oct 2018" title="Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide" notice="terms-of-use" source="STIG.DOD.MIL" fullversion="2.14" created="3/19/2019">
   <AccountPolicyRule dscresourcemodule="SecurityPolicyDsc">
     <Rule id="V-1097" severity="medium" conversionstatus="pass" title="Bad Logon Attempts" dscresource="AccountPolicy">
       <DuplicateOf />
@@ -7398,7 +7398,7 @@ Install patch KB3000850 on Windows 2012 R2 or KB3119938 on Windows 2012 on syste
 
 PowerShell 5.x does not require the installation of an additional patch.</FixText>
       <IsNullOrEmpty>False</IsNullOrEmpty>
-      <Key>HKEY_LOCAL_MACHINE\SOFTWARE\ Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging</Key>
+      <Key>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging</Key>
       <OrganizationValueRequired>False</OrganizationValueRequired>
       <OrganizationValueTestString />
       <RawString>If the following registry value does not exist or is not configured as specified, this is a finding.
