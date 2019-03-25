@@ -1,4 +1,4 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
+﻿# Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
 using module ..\helper.psm1
@@ -91,7 +91,7 @@ Configuration WindowsServer
 
     # $resourcePath is exported from the helper module in the header
     # Process Skipped rules
-    Import-DscResource -ModuleName PSDesiredStateConfiguration -ModuleVersion 1.1
+    Import-DscResource -ModuleName PSDSCResources -ModuleVersion 2.10.0.0
     . "$resourcePath\windows.Script.skip.ps1"
     ##### END DO NOT MODIFY #####
 
@@ -104,7 +104,7 @@ Configuration WindowsServer
     Import-DscResource -ModuleName PolicyFileEditor -ModuleVersion 3.0.1
     . "$resourcePath\windows.cAdministrativeTemplateSetting.ps1"
 
-    Import-DscResource -ModuleName PSDesiredStateConfiguration -ModuleVersion 1.1
+    Import-DscResource -ModuleName PSDSCResources -ModuleVersion 2.10.0.0
     . "$resourcePath\windows.Script.wmi.ps1"
 
     Import-DscResource -ModuleName SecurityPolicyDsc -ModuleVersion 2.4.0.0
